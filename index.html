@@ -1,38 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Party — Bike Maintenance Tracker</title>
-<style>
-  body { font-family: -apple-system, system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #1c1c1e; }
-  h1 { margin-bottom: 4px; }
-  .tagline { color: #6e6e73; margin-top: 0; }
-  h2 { margin-top: 40px; }
-  footer { margin-top: 60px; color: #6e6e73; font-size: 14px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Party — Strava Integration details">
+    <title>Party — Strava Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .app-name {
+            color: #FC4C02;
+        }
+
+        .intro {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #2a2a2a;
+            border-left: 4px solid #FC4C02;
+            padding-left: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        ul.policy-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .contact {
+            margin-top: 50px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            border: 1px solid #dee2e6;
+        }
+
+        .contact h2 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+        }
+
+        .email {
+            color: #FC4C02;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .email:hover {
+            text-decoration: underline;
+        }
+
+        .policy-link {
+            color: #FC4C02;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Party</h1>
-  <p class="tagline">A personal iOS app for tracking bikes, mileage, and component maintenance.</p>
+    <div class="container">
+        <header>
+            <h1><span class="app-name">Party</span> — Strava Integration</h1>
+            <p class="intro">How Party uses your Strava data</p>
+        </header>
 
-  <p>Party is a non-commercial app for personal use. It stores data about bikes, installed
-  components, their wear, and service history. Optionally, the app can sync with Strava to
-  automatically pull in ride distance.</p>
+        <section>
+            <p>Party is an iOS app for tracking bicycles, components, and maintenance history. This page explains how Party uses your Strava data when you choose to connect your account.</p>
+        </section>
 
-  <h2>Privacy Policy</h2>
-  <p>When Strava is connected, the app only requests access to the user's list of bikes (gear) and
-  activities, in order to match rides with locally stored bikes and add their distance to the
-  mileage total. Strava access and refresh tokens are stored locally on the device in the Keychain
-  and are never sent to any third-party server — the app has no backend of its own. All other data
-  (bikes, components, service history) is stored locally on the user's device only. Data is not
-  sold or shared with third parties.</p>
-  <p>The user can disconnect Strava at any time in the app's settings; this does not delete
-  already-saved local data.</p>
+        <section>
+            <h2>What we request</h2>
 
-  <h2>Contact</h2>
-  <p>For questions — <a href="mailto:konstantin.toporovskii@gmail.com">konstantin.toporovskii@gmail.com</a></p>
+            <p>When you connect Strava, Party asks for the following scopes: <code>read</code>, <code>activity:read_all</code>, and <code>profile:read_all</code>. This gives the app access to:</p>
 
-  <footer>Party · a personal project, not a public product or commercial service.</footer>
+            <ul class="policy-list">
+                <li>Your basic athlete profile</li>
+                <li>Your list of bikes (gear)</li>
+                <li>Your activities (rides)</li>
+            </ul>
+
+            <p>This data is used only to match your Strava rides and gear to the bikes and components you track in Party, so mileage-based wear calculations stay accurate without manual entry.</p>
+        </section>
+
+        <section>
+            <h2>How your data is stored</h2>
+
+            <p>Your Strava access and refresh tokens are stored securely in your device's Keychain and are never sent to any server other than Strava's own — Party has no backend of its own. Ride and gear data retrieved from Strava is stored locally on your device only.</p>
+        </section>
+
+        <section>
+            <h2>Disconnecting</h2>
+
+            <p>You can disconnect Strava at any time from the app's settings. This removes the stored tokens from your device; it does not delete your already-saved local bike and component data.</p>
+        </section>
+
+        <section>
+            <h2>More information</h2>
+
+            <p>This page covers the Strava integration specifically. For the full Party privacy policy, see <a class="policy-link" href="https://konstantin-toporovskii.github.io/party-privacy-policy/">konstantin-toporovskii.github.io/party-privacy-policy</a>.</p>
+
+            <p>Use of Strava data through Party is also subject to Strava's own Privacy Policy and Terms of Service.</p>
+        </section>
+
+        <div class="contact">
+            <h2>Contact Information</h2>
+            <p>If you have questions about the Strava integration, please contact:</p>
+            <p><strong>Email:</strong> <a href="mailto:konstantin.toporovskii@gmail.com" class="email">konstantin.toporovskii@gmail.com</a></p>
+        </div>
+
+        <footer>
+            <p><strong>Last updated:</strong> August 19, 2026</p>
+            <p style="margin-top: 10px;">© 2026 Konstantin Toporovskii. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
